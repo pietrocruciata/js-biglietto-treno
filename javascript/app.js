@@ -8,28 +8,39 @@ L’output del prezzo finale va stampato in console in forma “umana” cioè c
 
 //RICHIESTA KM 
 let km = parseFloat(prompt('scrivi i km da percorrere')); //number
-console.log('km da percorrere :' ,km);
+console.log('km da percorrere :' +km);
 
 //RICHIESTA ETà
-let età = parseFloat(prompt('scrivi la tua età')); //number
-console.log('età del passeggero :' ,età);
+let eta = parseFloat(prompt('scrivi la tua età')); //number
+console.log('età del passeggero :' +eta);
 
+//PREZZO INTERO
+let prezzo = parseFloat(km * 0.21); //number
 
-//TROVARE IL PREZZO DEL BIGLIETTO
-let prezzo = parseFloat(km * 0.21).toFixed(2); //number
-if(età >=18 || età <65){
-    console.log('prezzo pieno del biglietto:' ,prezzo)
-}
-
-
-//APPLICARE UNO SCONTO PER I MINORENNI
-let prezzoMino = parseFloat(prezzo * 0.2).toFixed(2); //number
-if(età <18){
-    console.log('biglietto scontato del 20%:' ,prezzo - prezzoMino);
-}
 
 //APPLICARE UNO SCONTO PER GLI OVER 65
-let prezzoOver = parseFloat(prezzo * 0.4).toFixed(2); //number
-if(età >=65){
-    console.log('biglietto scontato del 40%:' ,prezzo - prezzoOver);
+let prezzoOver = parseFloat(prezzo * 0.4); //number
+let prezzoScontatoOver = prezzo - prezzoOver;
+
+//APPLICARE UNO SCONTO PER I MINORENNI
+let prezzoMino = parseFloat(prezzo * 0.2); //number
+let prezzoScontatoMino = prezzo - prezzoMino;
+
+//VALIDAZIONI
+if(eta >=65){
+    console.log('biglietto scontato del 40%:' +prezzoScontatoOver.toFixed(2));
+}else if(eta <18){
+    console.log('biglietto scontato del 20%: ' +prezzoScontatoMino.toFixed(2));
+}else{
+    console.log('prezzo pieno del biglietto:' +prezzo.toFixed(2));
 }
+
+
+
+
+
+
+
+
+
+
